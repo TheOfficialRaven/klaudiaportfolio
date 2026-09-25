@@ -1,0 +1,57 @@
+.krtyaIkonos13 {
+  width: 100%;
+  background-color: #fffbef;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-block: 80px;
+  box-sizing: border-box;
+  gap: 40px;
+  text-align: center;
+  font-size: 40px;
+  color: var(--Stt);
+  font-family: Montserrat;
+}
+.cm {
+  margin: 0;
+  position: relative;
+}
+.dobozok {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 24px;
+}
+@media screen and (max-width: 1050px) {
+  .krtyaIkonos13 {
+    padding-block: 52px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .krtyaIkonos13 {
+    gap: 16px;
+    padding-block: 34px;
+    box-sizing: border-box;
+  }
+  .cm {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .dobozok {
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .cm {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}

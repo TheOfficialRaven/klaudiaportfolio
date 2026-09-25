@@ -1,0 +1,9 @@
+{
+  "id": "01KS5TDEMVCMWC7AJCEZ1JAHCJ",
+  "step": "failed",
+  "targetDir": ".",
+  "error": "No generated code available for this project.\n\nPlease generate code first:\n  1. Open your design in Locofy plugin on Figma\n  2. Click \"Sync to Builder\" -> \"View Code\"\n  3. Then try running this command again.\n",
+  "timestamp": "2026-05-21T17:47:59.341Z",
+  "lastActivity": "2026-05-21T17:47:59.341Z",
+  "description": "Failed: No generated code available for this project.\n\nPlease generate code first:\n  1. Open your design in Locofy plugin on Figma\n  2. Click \"Sync to Builder\" -> \"View Code\"\n  3. Then try running this command again.\n"
+}

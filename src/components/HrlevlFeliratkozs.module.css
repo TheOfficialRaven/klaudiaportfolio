@@ -1,0 +1,148 @@
+.hrlevlFeliratkozs11 {
+  width: 100%;
+  background-color: #fffbef;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  padding-block: 80px;
+  box-sizing: border-box;
+  gap: 40px;
+}
+.kepJobbra {
+  flex-direction: row-reverse;
+}
+.kpIcon {
+  height: 602px;
+  flex: 1;
+  position: relative;
+  border-radius: 20px;
+  max-width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+.tartalom {
+  align-self: stretch;
+  width: 618px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 0;
+  box-sizing: border-box;
+  gap: 24px;
+  text-align: left;
+  font-size: 20px;
+  color: var(--Elsdleges);
+  font-family: Montserrat;
+}
+.alcm {
+  margin: 0;
+}
+.alcm,
+.cm,
+.lers {
+  align-self: stretch;
+  position: relative;
+}
+.cm {
+  margin: 0;
+  color: var(--Stt);
+}
+.lers {
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--Szveg);
+}
+.gdpr,
+.rlap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.rlap {
+  margin: 0;
+  width: 510px;
+  flex-direction: column;
+}
+.gdpr {
+  align-self: stretch;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.pipaIkon {
+  margin: 0;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid var(--Szveg);
+  box-sizing: border-box;
+}
+.lers2 {
+  flex: 1;
+  position: relative;
+  font-size: 16px;
+  line-height: 160%;
+  text-align: left;
+  display: inline-block;
+  min-width: 0;
+}
+.elolvastamSElfogadom {
+  color: var(--Szveg);
+}
+.adatkezelsiTjkoztatt {
+  color: var(--Elsdleges);
+}
+.desktopGombok {
+  align-self: stretch;
+  padding: 15px 30px;
+}
+@media screen and (max-width: 1050px) {
+  .hrlevlFeliratkozs11,
+  .kepJobbra {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .kpIcon {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    aspect-ratio: 4 / 3;
+  }
+  .tartalom,
+  .rlap {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .hrlevlFeliratkozs11,
+  .kepJobbra {
+    gap: 20px;
+    padding-block: 52px;
+    box-sizing: border-box;
+  }
+  .tartalom {
+    padding-top: 8px;
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
+  .cm {
+    font-size: 32px;
+    line-height: 42px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .hrlevlFeliratkozs11 {
+    padding-block: 34px;
+    box-sizing: border-box;
+  }
+  .alcm {
+    font-size: 16px;
+    line-height: 21px;
+  }
+  .cm {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}

@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ultra:ital,wght@0,400&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+[id] {
+  scroll-margin-top: calc(var(--header-height) + 12px);
+}
+
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  --Elsdleges: #ffcd55;
+  --Fehr: #f4e8da;
+  --Stt: #011111;
+  --Szegly: #dbdbdf;
+  --Szveg: #62636a;
+  --Vilgos: #fcf1ee;
+  --rnyk: 8px 16px 40px rgba(0, 0, 0, 0.08);
+  --section-gutter: 180px;
+  /* Fejléc: 20+20 padding + ~50px tartalom (gomb/logó) */
+  --header-height: 90px;
+}
+
+/* Minden fő szekció: oldalsó térköz – asztali 180px, kisebb kijelzőn szűkül */
+[data-section] {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: var(--section-gutter) !important;
+  padding-right: var(--section-gutter) !important;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 1250px) {
+  :root {
+    --section-gutter: 80px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  :root {
+    --section-gutter: 48px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  :root {
+    --section-gutter: 24px;
+    --header-height: 72px;
+  }
+
+  h1 {
+    font-size: 40px !important;
+    line-height: 130% !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+    line-height: 130% !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  :root {
+    --section-gutter: 16px;
+  }
+
+  h1 {
+    font-size: 32px !important;
+  }
+
+  h2 {
+    font-size: 24px !important;
+  }
+}

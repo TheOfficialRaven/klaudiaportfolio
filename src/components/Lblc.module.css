@@ -1,0 +1,101 @@
+.lblc8 {
+  width: 100%;
+  background-color: var(--Elsdleges);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: 80px;
+  box-sizing: border-box;
+  gap: 24px;
+  text-align: left;
+  font-size: 12px;
+  color: var(--Stt);
+  font-family: Montserrat;
+}
+.logIcon {
+  width: 86px;
+  height: 21.3px;
+  position: relative;
+}
+.men {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: right;
+  font-size: 16px;
+}
+.lblc8Child {
+  width: 100%;
+  max-width: 100%;
+  height: 10.7px;
+  position: relative;
+  max-height: 100%;
+}
+.socialMedia {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.facebookIcon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.logoButton,
+.navLink {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.logoButton {
+  display: flex;
+  align-items: center;
+}
+.navLink:hover,
+.logoButton:hover {
+  opacity: 0.85;
+}
+.lers,
+.lers2 {
+  position: relative;
+  line-height: 160%;
+}
+.lers2 {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1050px) {
+  .lblc8 {
+    padding-block: 56px;
+  }
+  .men {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .lblc8 {
+    padding-block: 40px;
+    text-align: center;
+  }
+  .men {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .lblc8 {
+    padding-block: 32px;
+  }
+}

@@ -1,0 +1,330 @@
+.oldal {
+  position: relative;
+  background-color: #fffbef;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.fej {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  padding-block: 80px;
+  background-color: #fffbef;
+  font-family: Montserrat, sans-serif;
+}
+
+.alcim {
+  margin: 0;
+  color: var(--Elsdleges);
+  font-size: 20px;
+}
+
+.cim {
+  margin: 0;
+  color: var(--Stt);
+}
+
+.leiras {
+  margin: 0;
+  max-width: 640px;
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--Szveg);
+}
+
+.gombok {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.desktopGombok {
+  padding: 15px 30px;
+}
+
+.logok {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 30px;
+  background-color: var(--Elsdleges);
+}
+
+.logo {
+  width: 220px;
+  max-width: 22%;
+  height: 56px;
+  object-fit: contain;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding-block: 80px;
+  background-color: #fffbef;
+}
+
+.projekt {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 32px;
+}
+
+.projektKepBalra {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+
+.projektKepBalra .karussel {
+  order: -1;
+}
+
+.projektSzoveg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.karussel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.karusselKozep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.projektKep {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+}
+
+.nyil {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nyil:hover {
+  opacity: 0.75;
+}
+
+.nyilIkon {
+  width: 18px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+.nyilIkonJobb {
+  transform: rotate(180deg);
+}
+
+.projektAlcim {
+  margin: 0;
+  color: var(--Elsdleges);
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+}
+
+.projektCim {
+  margin: 0;
+  color: var(--Stt);
+  font-family: Montserrat, sans-serif;
+}
+
+.projektLeiras {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--Szveg);
+}
+
+.pontok {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pont,
+.pontAktiv {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #e8e0d4;
+  cursor: pointer;
+}
+
+.pontAktiv {
+  background-color: var(--Elsdleges);
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding-block: 48px;
+  background-color: var(--Elsdleges);
+}
+
+.ctaSzoveg {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ctaCim {
+  margin: 0;
+  color: var(--Stt);
+  font-family: Montserrat, sans-serif;
+}
+
+.ctaLeiras {
+  margin: 0;
+  max-width: 820px;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--Szveg);
+}
+
+.ctaGomb {
+  padding: 15px 30px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+@media screen and (max-width: 1050px) {
+  .fej,
+  .lista {
+    padding-block: 52px;
+  }
+
+  .projekt,
+  .projektKepBalra {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .projektKepBalra .karussel {
+    order: 0;
+  }
+
+  .cta {
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .cim {
+    font-size: 40px;
+  }
+
+  .alcim {
+    font-size: 16px;
+  }
+
+  .projekt,
+  .projektKepBalra {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .projektKepBalra .karussel {
+    order: 0;
+  }
+
+  .karussel {
+    gap: 8px;
+  }
+
+  .nyil {
+    width: 28px;
+  }
+
+  .projektCim,
+  .ctaCim {
+    font-size: 28px;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logok {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo {
+    max-width: 40%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .fej,
+  .lista {
+    padding-block: 34px;
+  }
+
+  .cim {
+    font-size: 32px;
+  }
+
+  .alcim {
+    font-size: 16px;
+  }
+
+  .projektCim,
+  .ctaCim {
+    font-size: 24px;
+  }
+
+  .gombok {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .desktopGombok,
+  .ctaGomb {
+    width: 100%;
+  }
+}

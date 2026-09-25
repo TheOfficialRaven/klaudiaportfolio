@@ -1,0 +1,113 @@
+.krdsdoboz1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 402px;
+  text-align: left;
+  font-size: 20px;
+  color: var(--Stt);
+  font-family: Montserrat;
+}
+
+.faqItem {
+  align-self: stretch;
+  border-bottom: 1px solid var(--Szegly);
+}
+
+.faqItemOpen {
+  color: var(--Elsdleges);
+}
+
+.krdsTrigger {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px 20px 18px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.caretDownIcon {
+  height: 20px;
+  width: 20px;
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.caretDownIconOpen {
+  transform: rotate(0deg);
+}
+
+.krds {
+  margin: 0;
+  flex: 1;
+  position: relative;
+}
+
+.vlaszPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vlaszPanelOpen {
+  grid-template-rows: 1fr;
+}
+
+.vlaszPanelInner {
+  overflow: hidden;
+}
+
+.vlaszWrapper {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 0 20px 20px;
+  font-size: 16px;
+  color: var(--Szveg);
+  opacity: 0;
+  transition: opacity 0.3s ease 0.08s;
+}
+
+.vlaszPanelOpen .vlaszWrapper {
+  opacity: 1;
+}
+
+.vlasz {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  line-height: 160%;
+}
+
+@media screen and (max-width: 1050px) {
+  .krdsdoboz1 {
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .krdsdoboz1 {
+    min-width: 100%;
+  }
+  .krdsTrigger {
+    padding: 16px 8px 14px;
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .krds {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}

@@ -1,0 +1,27 @@
+.newsletterFields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  font-size: 16px;
+  color: var(--Szveg);
+  font-family: Montserrat;
+}
+.lers1,
+.mez1,
+.newsletterFields {
+  align-self: stretch;
+}
+.lers1 {
+  position: relative;
+  line-height: 160%;
+}
+.mez1 {
+  border: 0;
+  background-color: transparent;
+  height: 47px;
+  font-family: Montserrat;
+  font-size: 16px;
+  color: var(--Szveg);
+}

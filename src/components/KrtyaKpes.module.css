@@ -1,0 +1,85 @@
+.krtyaKpes1,
+.tartalom {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.krtyaKpes1 {
+  width: 100%;
+  background-color: #fffbef;
+  overflow: hidden;
+  justify-content: center;
+  padding-block: 80px;
+  box-sizing: border-box;
+  gap: 40px;
+  text-align: center;
+  font-size: 20px;
+  color: var(--Elsdleges);
+  font-family: Montserrat;
+}
+.tartalom {
+  width: 100%;
+  max-width: 100%;
+  gap: 24px;
+  box-sizing: border-box;
+}
+.alcm {
+  margin: 0;
+}
+.alcm,
+.cm,
+.lers {
+  align-self: stretch;
+  position: relative;
+}
+.cm {
+  margin: 0;
+  color: var(--Stt);
+}
+.lers {
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--Szveg);
+}
+.tartalom2 {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 48px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1050px) {
+  .krtyaKpes1 {
+    padding-top: 52px;
+    padding-bottom: 52px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .krtyaKpes1 {
+    gap: 20px;
+    padding-top: 34px;
+    padding-bottom: 34px;
+    box-sizing: border-box;
+  }
+  .tartalom2 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .cm {
+    font-size: 32px;
+    line-height: 42px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .alcm {
+    font-size: 16px;
+    line-height: 21px;
+  }
+  .cm {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}

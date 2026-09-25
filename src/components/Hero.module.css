@@ -1,0 +1,148 @@
+.hero5,
+.tartalom {
+  display: flex;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.hero5 {
+  width: 100%;
+  height: calc(100svh - var(--header-height));
+  min-height: calc(100svh - var(--header-height));
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0;
+  background-image: url(/Hero-5@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.tartalom {
+  flex: 0 0 auto;
+  width: 642px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 0;
+  gap: 24px;
+  text-align: left;
+  font-size: 20px;
+  color: var(--Elsdleges);
+  font-family: Montserrat;
+}
+.alcm {
+  margin: 0;
+}
+.alcm,
+.cm,
+.lers {
+  align-self: stretch;
+  position: relative;
+}
+.cm {
+  margin: 0;
+  color: var(--Stt);
+}
+.lers {
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--Szveg);
+}
+.gombok {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.desktopGombok {
+  padding: 15px 30px;
+}
+.hero5Child {
+  flex: 0 0 auto;
+  width: 628px;
+  max-width: 45%;
+  height: auto;
+  max-height: 100%;
+  position: relative;
+  object-fit: contain;
+  object-position: right center;
+  align-self: center;
+}
+@media screen and (max-width: 1250px) {
+  .hero5 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    height: auto;
+    min-height: calc(100svh - var(--header-height));
+    padding-block: 40px;
+  }
+  .tartalom {
+    width: 100%;
+    max-width: 642px;
+  }
+  .hero5Child {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: min(628px, 100%);
+    max-height: 50vh;
+  }
+}
+@media screen and (max-width: 750px) {
+  .hero5 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    min-height: 0;
+    padding-block: 36px;
+    background-image: none;
+    background-color: #fffbef;
+  }
+  .hero5,
+  .tartalom {
+    height: auto;
+  }
+  .hero5Child {
+    max-width: 100%;
+    max-height: none;
+    align-self: stretch;
+  }
+  .cm {
+    font-size: 40px;
+    line-height: 1.3;
+  }
+  .gombok {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .hero5 {
+    gap: 20px;
+    padding-block: 28px;
+  }
+  .tartalom {
+    padding: 0;
+    gap: 16px;
+  }
+  .alcm {
+    font-size: 16px;
+    line-height: 21px;
+  }
+  .cm {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  .gombok {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .desktopGombok {
+    width: 100%;
+    padding: 12px 22px;
+  }
+}

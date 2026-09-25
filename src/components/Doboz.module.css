@@ -1,0 +1,78 @@
+.doboz1 {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  text-align: left;
+  font-size: 28px;
+  color: var(--Stt);
+  font-family: Montserrat;
+}
+.kpIcon {
+  width: 100%;
+  height: 368px;
+  border-radius: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.cm,
+.kpIcon,
+.lers {
+  align-self: stretch;
+  position: relative;
+}
+.cm {
+  margin: 0;
+}
+.lers {
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--Szveg);
+  white-space: pre-wrap;
+}
+.gomb {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 20px;
+  color: var(--Elsdleges);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+.gomb:hover {
+  opacity: 0.85;
+}
+.gombszveg {
+  margin: 0;
+  position: relative;
+}
+.ikonIcon {
+  align-self: stretch;
+  width: 24px;
+  position: relative;
+  max-height: 100%;
+}
+@media screen and (max-width: 750px) {
+  .kpIcon {
+    height: 240px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .cm {
+    font-size: 22px;
+    line-height: 29px;
+  }
+  .kpIcon {
+    height: 200px;
+  }
+  .gombszveg {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}

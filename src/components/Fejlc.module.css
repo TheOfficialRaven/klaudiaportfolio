@@ -1,0 +1,151 @@
+.fejlc1 {
+  width: 100%;
+  min-height: var(--header-height);
+  flex-shrink: 0;
+  box-shadow: var(--rnyk);
+  background-color: var(--Elsdleges);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+.logIcon {
+  height: 27.2px;
+  width: 110px;
+  position: relative;
+}
+.men {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  box-sizing: border-box;
+}
+.men2 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  text-align: right;
+  font-family: Montserrat;
+  font-size: 16px;
+  color: #fffbef;
+}
+.lers3 {
+  position: relative;
+  line-height: 160%;
+}
+.logoButton,
+.navLink {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.logoButton {
+  display: flex;
+  align-items: center;
+}
+.navLink:hover,
+.logoButton:hover {
+  opacity: 0.85;
+}
+.navLinkAktiv {
+  font-weight: 700;
+}
+.desktopGombok {
+  padding: 15px 30px;
+}
+.menuGomb {
+  display: none;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+}
+.menuVonalka {
+  position: absolute;
+  left: 11px;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fffbef;
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.menuVonalka:nth-child(1) {
+  top: 14px;
+}
+.menuVonalka:nth-child(2) {
+  top: 21px;
+}
+.menuVonalka:nth-child(3) {
+  top: 28px;
+}
+.menuGombNyitva .menuVonalka:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menuGombNyitva .menuVonalka:nth-child(2) {
+  opacity: 0;
+}
+.menuGombNyitva .menuVonalka:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media screen and (max-width: 1050px) {
+  .fejlc1 {
+    position: relative;
+    z-index: 40;
+    padding-block: 12px;
+  }
+  .menuGomb {
+    display: flex;
+  }
+  .men {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: calc(-1 * var(--section-gutter));
+    right: calc(-1 * var(--section-gutter));
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 8px var(--section-gutter) 24px;
+    background-color: var(--Elsdleges);
+    box-shadow: var(--rnyk);
+  }
+  .menNyitva {
+    display: flex;
+  }
+  .men2 {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: left;
+  }
+  .desktopGombok {
+    align-self: flex-start;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .logIcon {
+    width: 96px;
+    height: auto;
+  }
+  .desktopGombok {
+    padding: 12px 22px;
+  }
+}

@@ -1,0 +1,205 @@
+.szvegKp13,
+.tartalom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.szvegKp13 {
+  width: 100%;
+  background-color: #fffbef;
+  overflow: hidden;
+  align-items: stretch;
+  padding-block: 80px;
+  box-sizing: border-box;
+  gap: 80px;
+  max-width: 100%;
+  text-align: left;
+  font-size: 20px;
+  color: var(--Elsdleges);
+  font-family: Montserrat;
+}
+.tartalom {
+  width: 100%;
+  max-width: 100%;
+  align-items: flex-start;
+  gap: 20px;
+  box-sizing: border-box;
+}
+.alcm,
+.cm,
+.lers {
+  position: relative;
+}
+.alcm {
+  margin: 0;
+  width: 342px;
+  text-align: center;
+  display: inline-block;
+}
+.cm,
+.lers {
+  align-self: stretch;
+}
+.cm {
+  margin: 0;
+  color: var(--Stt);
+}
+.lers {
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--Szveg);
+}
+.frameParent {
+  width: 100%;
+  max-width: 100%;
+  min-height: 590px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.tartalom2,
+.tartalomWrapper {
+  flex-direction: column;
+  max-width: 100%;
+}
+.tartalomWrapper {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  padding: 53px 0 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 40px;
+  color: var(--Elsdleges);
+  font-family: Montserrat;
+}
+.tartalom2 {
+  width: 590px;
+  align-items: center;
+}
+.doboz1,
+.dobozok1,
+.tartalom2 {
+  display: flex;
+  gap: 24px;
+}
+.dobozok1 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.doboz1 {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 184px;
+}
+.hex {
+  margin: 0;
+  text-align: left;
+}
+.cm2,
+.hex,
+.kpIcon {
+  position: relative;
+}
+.cm2 {
+  margin: 0;
+  align-self: stretch;
+  color: var(--Stt);
+}
+.kpIcon {
+  flex: 0 0 590px;
+  width: 590px;
+  height: 590px;
+  box-shadow: 8px 8px 0 var(--Elsdleges);
+  border-radius: 20px;
+  object-fit: cover;
+  align-self: flex-start;
+}
+@media screen and (max-width: 1250px) {
+  .frameParent {
+    min-height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  .tartalom2 {
+    width: 100%;
+    max-width: 590px;
+  }
+  .kpIcon {
+    flex: 0 1 auto;
+    width: min(590px, 100%);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 590 / 590;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .szvegKp13 {
+    padding-top: 52px;
+    padding-bottom: 52px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .szvegKp13 {
+    gap: 32px;
+    padding-top: 34px;
+    padding-bottom: 34px;
+    box-sizing: border-box;
+  }
+  .alcm {
+    width: 100%;
+    text-align: left;
+  }
+  .cm {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .frameParent {
+    gap: 32px;
+  }
+  .tartalomWrapper {
+    width: 100%;
+    padding-top: 0;
+    box-sizing: border-box;
+  }
+  .dobozok1 {
+    flex-wrap: wrap;
+  }
+  .doboz1 {
+    min-width: 140px;
+  }
+  .hex {
+    font-size: 32px;
+    line-height: 42px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .szvegKp13 {
+    gap: 20px;
+  }
+  .alcm {
+    font-size: 16px;
+    line-height: 21px;
+  }
+  .cm {
+    font-size: 24px;
+    line-height: 31px;
+  }
+  .frameParent {
+    gap: 20px;
+  }
+  .hex {
+    font-size: 24px;
+    line-height: 31px;
+  }
+  .cm2 {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
