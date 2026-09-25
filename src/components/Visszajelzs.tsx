@@ -95,7 +95,7 @@ const Visszajelzs: FunctionComponent<VisszajelzsType> = ({
                 alt=""
                 src={aktiv.avatar}
               />
-              <img className={styles.icon} loading="lazy" alt="" src="/.svg" />
+              <img className={styles.icon} loading="lazy" alt="" src="/idezojel.svg" />
             </Box>
             <Typography
               className={styles.cm2}
