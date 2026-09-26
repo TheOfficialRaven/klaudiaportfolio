@@ -44,6 +44,11 @@
   height: 24px;
   width: 24px;
   position: relative;
+  cursor: pointer;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.facebookIcon:hover {
+  transform: translateY(-3px) scale(1.12);
 }
 .logoButton,
 .navLink {
@@ -89,6 +94,23 @@
 }
 .lers2 {
   font-weight: 600;
+  cursor: pointer;
+}
+.lers2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lers2:hover::after {
+  transform: scaleX(1);
 }
 
 @media screen and (max-width: 1050px) {

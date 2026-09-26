@@ -78,6 +78,11 @@
   border-radius: 4px;
   border: 1px solid var(--Szveg);
   box-sizing: border-box;
+  accent-color: var(--Elsdleges);
+}
+.pipaIkon:focus-visible {
+  outline: 2px solid var(--Elsdleges);
+  outline-offset: 2px;
 }
 .lers2 {
   flex: 1;
@@ -93,6 +98,24 @@
 }
 .adatkezelsiTjkoztatt {
   color: var(--Elsdleges);
+  position: relative;
+  cursor: pointer;
+}
+.adatkezelsiTjkoztatt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  border-radius: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.adatkezelsiTjkoztatt:hover::after {
+  transform: scaleX(1);
 }
 .desktopGombok {
   align-self: stretch;

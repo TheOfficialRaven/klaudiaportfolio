@@ -28,6 +28,13 @@ const NewsletterFields: FunctionComponent<NewsletterFieldsType> = ({
         variant="outlined"
         sx={{
           "& fieldset": { borderColor: "#dbdbdf" },
+          "& .MuiOutlinedInput-root:hover fieldset": {
+            borderColor: "#ffcd55",
+          },
+          "& .MuiOutlinedInput-root.Mui-focused fieldset, & .MuiOutlinedInput-root:focus-within fieldset": {
+            borderColor: "#ffcd55",
+            borderWidth: "1px",
+          },
           "& .MuiInputBase-root": {
             height: "47px",
             backgroundColor: "#fffbef",
