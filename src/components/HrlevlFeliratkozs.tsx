@@ -77,11 +77,11 @@ const HrlevlFeliratkozs: FunctionComponent<HrlevlFeliratkozsType> = ({
             disableElevation
             variant="contained"
             sx={{
-              color: "#f4e9da",
+              color: "#fffbef",
               fontSize: "14",
               background: "#ffcd55",
               borderRadius: "6px",
-              "&:hover": { background: "#ffcd55" },
+              "&:hover": { color: "#fffbef", background: "#ffcd55" },
             }}
             type="submit"
           >

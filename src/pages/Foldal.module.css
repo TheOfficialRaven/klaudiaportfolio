@@ -1,7 +1,9 @@
 .foldal,
 .logk2 {
-  overflow: hidden;
   display: flex;
+}
+.logk2 {
+  overflow: hidden;
 }
 .foldal {
   position: relative;

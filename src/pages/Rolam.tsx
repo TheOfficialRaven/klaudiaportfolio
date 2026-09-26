@@ -232,8 +232,8 @@ const Rolam: FunctionComponent = () => {
       <section data-section className={styles.munkatars}>
         <img
           className={styles.munkatarsKep}
-          src="/Group-8729@2x.png"
-          alt=""
+          src="/munkatarsam.png"
+          alt="Munkatársam"
           loading="lazy"
         />
         <div className={styles.munkatarsSzoveg}>

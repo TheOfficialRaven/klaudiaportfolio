@@ -77,8 +77,11 @@
   cursor: pointer;
   z-index: 1;
 }
-.nyilGomb:hover {
-  opacity: 0.8;
+.nyilGomb:hover .vectorIcon {
+  transform: translateX(-5px);
+}
+.nyilGomb:hover .vectorIconJobb {
+  transform: scaleX(-1) translateX(-5px);
 }
 .nyilGombJobb {
   position: absolute;
@@ -91,6 +94,7 @@
   width: 27px;
   display: block;
   filter: brightness(0) invert(1);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .vectorIconJobb {
   transform: scaleX(-1);
@@ -161,6 +165,39 @@
   color: var(--Szveg);
   flex-shrink: 0;
 }
+.csuszka {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+}
+.tartalom2 {
+  animation: velemenyBe 1.2s cubic-bezier(0.45, 0, 0.18, 1) both;
+}
+.tartalom2[data-irany="-1"] {
+  animation-name: velemenyBeVissza;
+}
+@keyframes velemenyBe {
+  from {
+    opacity: 0;
+    transform: translate3d(12px, 6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes velemenyBeVissza {
+  from {
+    opacity: 0;
+    transform: translate3d(-12px, 6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 .reviewerDetailsIcon {
   width: 100%;
   height: 100%;
@@ -168,9 +205,20 @@
   object-fit: cover;
   object-position: center;
   border-radius: 0 20px 20px 0;
+  animation: velemenyKep 1.35s cubic-bezier(0.45, 0, 0.18, 1) both;
+}
+@keyframes velemenyKep {
+  from {
+    opacity: 0;
+    transform: scale(1.018);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 .lapoz {
-  width: 55px;
+  width: auto;
   height: 12px;
   align-self: center;
   display: flex;
@@ -188,9 +236,26 @@
   border-radius: 50%;
   background-color: var(--Vilgos);
   cursor: pointer;
+  transition:
+    transform 0.55s cubic-bezier(0.45, 0, 0.18, 1),
+    background-color 0.55s ease,
+    width 0.55s cubic-bezier(0.45, 0, 0.18, 1);
+}
+.feedbackItems:hover,
+.feedbackItems2:hover {
+  transform: scale(1.45);
+  background-color: var(--Elsdleges);
 }
 .feedbackItems2 {
+  width: 22px;
+  border-radius: 999px;
   background-color: var(--Elsdleges);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tartalom2,
+  .reviewerDetailsIcon {
+    animation: none;
+  }
 }
 @media screen and (max-width: 1050px) {
   .visszajelzs14 {
@@ -201,27 +266,43 @@
     text-align: left;
   }
   .kpSzveg11 {
+    --sarga-sav: 56px;
     height: auto;
     min-height: 0;
-    flex-wrap: wrap;
-    padding: 28px 20px;
-    gap: 16px;
+    flex-wrap: nowrap;
+    background: linear-gradient(
+      90deg,
+      var(--Elsdleges) var(--sarga-sav),
+      #fffbef var(--sarga-sav)
+    );
+    padding: 28px 72px 28px calc(var(--sarga-sav) + 24px);
+    gap: 0;
+  }
+  .nyilGomb {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: var(--sarga-sav);
+    transform: translateY(-50%);
+    justify-content: center;
+  }
+  .nyilGombJobb {
+    left: auto;
+    right: 18px;
+    width: auto;
+    transform: translateY(-50%);
   }
   .tartalomParent {
     height: auto;
-    flex: 1 1 100%;
+    flex: 1 1 auto;
+    width: 100%;
     grid-template-columns: 1fr;
     gap: 24px;
-    order: -1;
   }
   .reviewerDetailsIcon {
     width: 100%;
     height: 280px;
     border-radius: 20px;
-  }
-  .nyilGombJobb {
-    position: static;
-    transform: none;
   }
 }
 @media screen and (max-width: 750px) {
@@ -230,7 +311,8 @@
     line-height: 42px;
   }
   .kpSzveg11 {
-    padding: 24px 16px;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
   .vectorIcon {
     height: 32px;

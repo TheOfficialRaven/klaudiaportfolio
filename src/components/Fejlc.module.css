@@ -1,15 +1,30 @@
 .fejlc1 {
+  position: sticky;
+  top: 0;
+  z-index: 40;
   width: 100%;
   min-height: var(--header-height);
   flex-shrink: 0;
   box-shadow: var(--rnyk);
-  background-color: var(--Elsdleges);
+  background-color: #ffcd55;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-block: 20px;
   box-sizing: border-box;
   gap: 20px;
+}
+.fejlcBeleolvad {
+  background-color: #ffcd55;
+  box-shadow: none;
+}
+.fejlcLekerekitett {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 .logIcon {
   height: 27.2px;
@@ -23,6 +38,10 @@
   justify-content: flex-end;
   gap: 24px;
   box-sizing: border-box;
+}
+.menBelso,
+.menTartalom {
+  display: contents;
 }
 .men2 {
   margin: 0;
@@ -51,10 +70,31 @@
 .logoButton {
   display: flex;
   align-items: center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.navLink:hover,
+.navLink {
+  position: relative;
+  font-weight: 600;
+}
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.navLink:hover::after,
+.navLinkAktiv::after {
+  transform: scaleX(1);
+}
 .logoButton:hover {
-  opacity: 0.85;
+  transform: scale(1.04);
 }
 .navLinkAktiv {
   font-weight: 700;
@@ -72,6 +112,10 @@
   background: none;
   cursor: pointer;
   position: relative;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.menuGomb:hover {
+  transform: scale(1.06);
 }
 .menuVonalka {
   position: absolute;
@@ -104,39 +148,82 @@
 
 @media screen and (max-width: 1050px) {
   .fejlc1 {
-    position: relative;
-    z-index: 40;
     padding-block: 12px;
+  }
+  .fejlcMenuNyitva {
+    box-shadow: none;
+  }
+  .logoButton,
+  .menuGomb {
+    position: relative;
+    z-index: 1;
   }
   .menuGomb {
     display: flex;
   }
   .men {
-    display: none;
     position: absolute;
-    top: 100%;
-    left: calc(-1 * var(--section-gutter));
-    right: calc(-1 * var(--section-gutter));
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 8px var(--section-gutter) 24px;
-    background-color: var(--Elsdleges);
-    box-shadow: var(--rnyk);
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    padding: var(--header-height) 0 0;
+    background-color: #ffcd55;
+    border-radius: inherit;
+    overflow: hidden;
+    clip-path: inset(0 0 calc(100% - var(--header-height)) 0 round 0 0 25px 25px);
+    box-shadow: none;
+    filter: none;
+    pointer-events: none;
+    visibility: hidden;
+    transition:
+      clip-path 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0.28s;
   }
   .menNyitva {
+    clip-path: inset(0 round 0 0 25px 25px);
+    filter: drop-shadow(var(--rnyk));
+    visibility: visible;
+    transition:
+      clip-path 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0s;
+  }
+  .menNyitva .menTartalom {
+    pointer-events: auto;
+  }
+  .menBelso {
+    display: block;
+    min-height: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  .menTartalom {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 4px var(--section-gutter) 28px;
   }
   .men2 {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     gap: 16px;
-    text-align: left;
+    width: 100%;
+    text-align: center;
   }
   .desktopGombok {
-    align-self: flex-start;
+    align-self: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .men,
+  .menNyitva {
+    transition: none;
   }
 }
 

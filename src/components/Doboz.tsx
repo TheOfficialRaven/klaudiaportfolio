@@ -38,7 +38,7 @@ const Doboz: FunctionComponent<DobozType> = ({ className = "", kp, cm }) => {
           className={styles.gombszveg}
           variant="inherit"
           variantMapping={{ inherit: "h3" }}
-          sx={{ fontWeight: "700", lineHeight: "130%" }}
+          sx={{ fontWeight: "600", lineHeight: "130%" }}
           component="span"
         >
           Kattints ide

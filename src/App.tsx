@@ -10,6 +10,8 @@ import Referenciaim from "./pages/Referenciaim";
 import Rolam from "./pages/Rolam";
 import Szolgaltatasok from "./pages/Szolgaltatasok";
 import Kapcsolat from "./pages/Kapcsolat";
+import OldalValtas from "./components/OldalValtas";
+import { oldalBetoltodott } from "./utils/oldalValtas";
 
 function App() {
   const action = useNavigationType();
@@ -17,6 +19,8 @@ function App() {
   const pathname = location.pathname;
 
   useEffect(() => {
+    oldalBetoltodott();
+
     if (location.hash) {
       const id = decodeURIComponent(location.hash.slice(1));
       const timer = window.setTimeout(() => {
@@ -75,13 +79,16 @@ function App() {
   }, [pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Foldal />} />
-      <Route path="/referenciaim" element={<Referenciaim />} />
-      <Route path="/rolam" element={<Rolam />} />
-      <Route path="/szolgaltatasok" element={<Szolgaltatasok />} />
-      <Route path="/kapcsolat" element={<Kapcsolat />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Foldal />} />
+        <Route path="/referenciaim" element={<Referenciaim />} />
+        <Route path="/rolam" element={<Rolam />} />
+        <Route path="/szolgaltatasok" element={<Szolgaltatasok />} />
+        <Route path="/kapcsolat" element={<Kapcsolat />} />
+      </Routes>
+      <OldalValtas />
+    </>
   );
 }
 

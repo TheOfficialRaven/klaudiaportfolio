@@ -10,12 +10,16 @@
   gap: 180px;
 }
 .kpIcon {
-  height: 731px;
-  width: 590px;
+  width: min(100%, 560px);
+  aspect-ratio: 4 / 5;
+  height: auto;
+  max-height: 720px;
   flex-shrink: 0;
   position: relative;
   border-radius: 20px;
   object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 .tartalom {
   flex: 1;
@@ -51,14 +55,13 @@
 .desktopGombok {
   padding: 15px 30px;
 }
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1450px) {
   .kpSzveg1 {
     gap: 64px;
   }
   .kpIcon {
     width: min(480px, 42%);
-    height: auto;
-    max-height: 70vh;
+    max-height: 720px;
   }
 }
 @media screen and (max-width: 1050px) {
@@ -72,9 +75,8 @@
   }
   .kpIcon {
     width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 70vh;
+    max-width: 560px;
+    max-height: 720px;
   }
   .tartalom {
     flex: 1 1 100%;

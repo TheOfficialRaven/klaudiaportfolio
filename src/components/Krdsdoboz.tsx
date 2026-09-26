@@ -57,7 +57,7 @@ const Krdsdoboz: FunctionComponent<KrdsdobozType> = ({
                 className={styles.krds}
                 variant="inherit"
                 variantMapping={{ inherit: "h3" }}
-                sx={{ fontWeight: "700", lineHeight: "130%" }}
+                sx={{ fontWeight: "600", lineHeight: "130%" }}
                 component="span"
               >
                 {item.question}

@@ -87,9 +87,7 @@
 
 .munkatarsKep {
   width: 100%;
-  max-height: 640px;
-  border-radius: 20px;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 

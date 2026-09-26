@@ -1,5 +1,6 @@
 import type { MouseEvent } from "react";
 import type { NavigateFunction } from "react-router-dom";
+import { oldalra } from "./oldalValtas";
 import { scrollToSection, type SectionId } from "./scrollToSection";
 
 const pageRoutes = ["/referenciaim", "/rolam", "/szolgaltatasok", "/kapcsolat"];
@@ -45,7 +46,7 @@ export function goTo(
 ) {
   if (pageRoutes.includes(href)) {
     if (goToSamePageTop(href, pathname)) return;
-    navigate(href);
+    oldalra(() => navigate(href));
     return;
   }
 
@@ -54,7 +55,7 @@ export function goTo(
       scrollToSection("hero");
       return;
     }
-    navigate("/");
+    oldalra(() => navigate("/"));
     return;
   }
 
@@ -64,11 +65,11 @@ export function goTo(
       scrollToSection(sectionId);
       return;
     }
-    navigate({ pathname: "/", hash: href.slice(1) });
+    oldalra(() => navigate({ pathname: "/", hash: href.slice(1) }));
     return;
   }
 
   if (!isCurrentPath(href, pathname)) {
-    navigate(href);
+    oldalra(() => navigate(href));
   }
 }

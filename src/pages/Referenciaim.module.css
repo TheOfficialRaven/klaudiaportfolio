@@ -131,10 +131,13 @@
   border: none;
   background: none;
   cursor: pointer;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-.nyil:hover {
-  opacity: 0.75;
+.karussel > .nyil:first-of-type:hover {
+  transform: translateX(-4px);
+}
+.karussel > .nyil:last-of-type:hover {
+  transform: translateX(4px);
 }
 
 .nyilIkon {
@@ -185,6 +188,14 @@
   border-radius: 50%;
   background-color: #e8e0d4;
   cursor: pointer;
+  transition:
+    transform 0.55s cubic-bezier(0.45, 0, 0.18, 1),
+    background-color 0.55s ease;
+}
+.pont:hover,
+.pontAktiv:hover {
+  transform: scale(1.45);
+  background-color: var(--Elsdleges);
 }
 
 .pontAktiv {

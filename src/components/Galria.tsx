@@ -1,5 +1,6 @@
 import { FunctionComponent, useState } from "react";
 import { Box } from "@mui/material";
+import { useKepValtas } from "../hooks/useKepValtas";
 import styles from "./Galria.module.css";
 
 export type GalriaType = {
@@ -13,15 +14,23 @@ const oldalak = [
 
 const Galria: FunctionComponent<GalriaType> = ({ className = "" }) => {
   const [aktivOldal, setAktivOldal] = useState(0);
+  const [mozog, setMozog] = useState(false);
+  const kepekRef = useKepValtas(aktivOldal, mozog);
   const oldalSzam = oldalak.length;
   const kepek = oldalak[aktivOldal];
 
+  const mutat = (index: number) => {
+    if (index === aktivOldal) return;
+    setMozog(true);
+    setAktivOldal(index);
+  };
+
   const elozo = () => {
-    setAktivOldal((jelenlegi) => (jelenlegi - 1 + oldalSzam) % oldalSzam);
+    mutat((aktivOldal - 1 + oldalSzam) % oldalSzam);
   };
 
   const kovetkezo = () => {
-    setAktivOldal((jelenlegi) => (jelenlegi + 1) % oldalSzam);
+    mutat((aktivOldal + 1) % oldalSzam);
   };
 
   return (
@@ -40,10 +49,15 @@ const Galria: FunctionComponent<GalriaType> = ({ className = "" }) => {
             src="/Vector.svg"
           />
         </button>
-        {kepek.map((kep) => (
+        {kepek.map((kep, index) => (
           <img
-            key={kep}
-            className={styles.kp3Icon}
+            key={index}
+            ref={(node) => {
+              kepekRef.current[index] = node;
+            }}
+            className={[styles.kp3Icon, mozog ? "kepFinom" : ""]
+              .filter(Boolean)
+              .join(" ")}
             loading="lazy"
             alt=""
             src={kep}
@@ -75,7 +89,7 @@ const Galria: FunctionComponent<GalriaType> = ({ className = "" }) => {
               className={[styles.hex, aktivPont ? styles.rgb : ""]
                 .filter(Boolean)
                 .join(" ")}
-              onClick={() => setAktivOldal(index)}
+              onClick={() => mutat(index)}
             />
           );
         })}

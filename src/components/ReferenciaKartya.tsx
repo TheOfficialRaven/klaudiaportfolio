@@ -1,6 +1,7 @@
 import { FunctionComponent, useState } from "react";
 import { Typography } from "@mui/material";
 import type { Referencia } from "../data/referenciak";
+import { useKepValtas } from "../hooks/useKepValtas";
 import styles from "../pages/Referenciaim.module.css";
 
 export type ReferenciaKartyaType = {
@@ -13,15 +14,23 @@ const ReferenciaKartya: FunctionComponent<ReferenciaKartyaType> = ({
   kepBalra = false,
 }) => {
   const [aktivIndex, setAktivIndex] = useState(0);
+  const [mozog, setMozog] = useState(false);
   const kepek = item.kepek;
   const kepSzam = kepek.length;
+  const kepRef = useKepValtas(aktivIndex, mozog);
+
+  const mutat = (index: number) => {
+    if (index === aktivIndex) return;
+    setMozog(true);
+    setAktivIndex(index);
+  };
 
   const elozo = () => {
-    setAktivIndex((jelenlegi) => (jelenlegi - 1 + kepSzam) % kepSzam);
+    mutat((aktivIndex - 1 + kepSzam) % kepSzam);
   };
 
   const kovetkezo = () => {
-    setAktivIndex((jelenlegi) => (jelenlegi + 1) % kepSzam);
+    mutat((aktivIndex + 1) % kepSzam);
   };
 
   return (
@@ -66,7 +75,12 @@ const ReferenciaKartya: FunctionComponent<ReferenciaKartyaType> = ({
 
         <div className={styles.karusselKozep}>
           <img
-            className={styles.projektKep}
+            ref={(node) => {
+              kepRef.current[0] = node;
+            }}
+            className={[styles.projektKep, mozog ? "kepFinom" : ""]
+              .filter(Boolean)
+              .join(" ")}
             src={kepek[aktivIndex]}
             alt={`${item.cim} – ${aktivIndex + 1}. kép`}
             loading="lazy"
@@ -84,7 +98,7 @@ const ReferenciaKartya: FunctionComponent<ReferenciaKartyaType> = ({
                   className={[styles.pont, aktiv ? styles.pontAktiv : ""]
                     .filter(Boolean)
                     .join(" ")}
-                  onClick={() => setAktivIndex(index)}
+                  onClick={() => mutat(index)}
                 />
               );
             })}

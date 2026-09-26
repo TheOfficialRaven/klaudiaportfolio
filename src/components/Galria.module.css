@@ -28,14 +28,18 @@
   background: none;
   cursor: pointer;
 }
-.nyilGomb:hover {
-  opacity: 0.8;
-}
 .vectorIcon {
   height: 44px;
   width: 27px;
   display: block;
   object-fit: contain;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nyilGomb:hover .vectorIcon {
+  transform: translateX(-5px);
+}
+.nyilGomb:hover .vectorIconJobb {
+  transform: scaleX(-1) translateX(-5px);
 }
 .vectorIconJobb {
   transform: scaleX(-1);
@@ -66,6 +70,14 @@
   padding: 0;
   border: none;
   cursor: pointer;
+  transition:
+    transform 0.55s cubic-bezier(0.45, 0, 0.18, 1),
+    background-color 0.55s ease;
+}
+.hex:hover,
+.rgb:hover {
+  transform: scale(1.45);
+  background-color: var(--Elsdleges);
 }
 .hex {
   background-color: #bbb;

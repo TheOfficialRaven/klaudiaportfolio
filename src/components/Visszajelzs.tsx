@@ -1,6 +1,8 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import styles from "./Visszajelzs.module.css";
+
+const VALTAS_IDO = 20000;
 
 export type VisszajelzsType = {
   className?: string;
@@ -37,16 +39,59 @@ const Visszajelzs: FunctionComponent<VisszajelzsType> = ({
   className = "",
 }) => {
   const [aktivIndex, setAktivIndex] = useState(0);
+  const [irany, setIrany] = useState<1 | -1>(1);
+  const [ciklus, setCiklus] = useState(0);
+  const [fent, setFent] = useState(false);
+  const [rejtett, setRejtett] = useState(false);
+  const szunet = fent || rejtett;
   const aktiv = velemenyek[aktivIndex];
   const darab = velemenyek.length;
+  const szovegRef = useRef<HTMLDivElement>(null);
+  const kepRef = useRef<HTMLImageElement>(null);
+  const elsoLepes = useRef(true);
+
+  useLayoutEffect(() => {
+    if (elsoLepes.current) {
+      elsoLepes.current = false;
+      return;
+    }
+    for (const elem of [szovegRef.current, kepRef.current]) {
+      if (!elem) continue;
+      elem.style.animation = "none";
+      void elem.offsetWidth;
+      elem.style.animation = "";
+    }
+  }, [aktivIndex, irany]);
+
+  const leptet = (index: number, kovetkezoIrany: 1 | -1, kezbol: boolean) => {
+    if (index === aktivIndex) return;
+    setIrany(kovetkezoIrany);
+    setAktivIndex(index);
+    if (kezbol) setCiklus((jelenlegi) => jelenlegi + 1);
+  };
 
   const elozo = () => {
-    setAktivIndex((jelenlegi) => (jelenlegi - 1 + darab) % darab);
+    leptet((aktivIndex - 1 + darab) % darab, -1, true);
   };
 
   const kovetkezo = () => {
-    setAktivIndex((jelenlegi) => (jelenlegi + 1) % darab);
+    leptet((aktivIndex + 1) % darab, 1, true);
   };
+
+  useEffect(() => {
+    const frissit = () => setRejtett(document.hidden);
+    document.addEventListener("visibilitychange", frissit);
+    return () => document.removeEventListener("visibilitychange", frissit);
+  }, []);
+
+  useEffect(() => {
+    if (szunet) return undefined;
+    const id = window.setInterval(() => {
+      setIrany(1);
+      setAktivIndex((jelenlegi) => (jelenlegi + 1) % darab);
+    }, VALTAS_IDO);
+    return () => window.clearInterval(id);
+  }, [szunet, ciklus, darab]);
 
   return (
     <section data-section className={[styles.visszajelzs14, className].join(" ")}>
@@ -72,6 +117,17 @@ const Visszajelzs: FunctionComponent<VisszajelzsType> = ({
           bizonyítékaidat vagy egy előnyöd, funkciód.
         </div>
       </Box>
+      <div
+        className={styles.csuszka}
+        onMouseEnter={() => setFent(true)}
+        onMouseLeave={() => setFent(false)}
+        onFocus={() => setFent(true)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+            setFent(false);
+          }
+        }}
+      >
       <Box className={styles.kpSzveg11}>
         <button
           type="button"
@@ -87,7 +143,11 @@ const Visszajelzs: FunctionComponent<VisszajelzsType> = ({
           />
         </button>
         <section className={styles.tartalomParent}>
-          <Box className={styles.tartalom2}>
+          <div
+            ref={szovegRef}
+            className={styles.tartalom2}
+            data-irany={irany}
+          >
             <Box className={styles.tartalom3}>
               <img
                 className={styles.tartalomChild}
@@ -116,8 +176,9 @@ const Visszajelzs: FunctionComponent<VisszajelzsType> = ({
               </Typography>
             </Typography>
             <div className={styles.lers2}>{aktiv.szoveg}</div>
-          </Box>
+          </div>
           <img
+            ref={kepRef}
             className={styles.reviewerDetailsIcon}
             loading="lazy"
             alt=""
@@ -146,18 +207,19 @@ const Visszajelzs: FunctionComponent<VisszajelzsType> = ({
               key={velemeny.nev}
               type="button"
               aria-label={`${index + 1}. vélemény`}
-              aria-current={aktivPont}
+              aria-current={aktivPont ? "true" : undefined}
               className={[
                 styles.feedbackItems,
                 aktivPont ? styles.feedbackItems2 : "",
               ]
                 .filter(Boolean)
                 .join(" ")}
-              onClick={() => setAktivIndex(index)}
+              onClick={() => leptet(index, index > aktivIndex ? 1 : -1, true)}
             />
           );
         })}
       </Box>
+      </div>
     </section>
   );
 };

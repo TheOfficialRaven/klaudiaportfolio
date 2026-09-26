@@ -57,10 +57,30 @@
 .logoButton {
   display: flex;
   align-items: center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.navLink:hover,
+.navLink {
+  position: relative;
+  font-weight: 600;
+}
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.navLink:hover::after {
+  transform: scaleX(1);
+}
 .logoButton:hover {
-  opacity: 0.85;
+  transform: scale(1.04);
 }
 .lers,
 .lers2 {

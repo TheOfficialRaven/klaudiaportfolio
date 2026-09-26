@@ -31,8 +31,14 @@
   cursor: pointer;
   text-align: left;
   font: inherit;
+  font-weight: 600;
   color: inherit;
   box-sizing: border-box;
+  transition: color 0.28s ease;
+}
+.krdsTrigger:hover,
+.krdsTrigger:hover .krds {
+  color: var(--Elsdleges);
 }
 
 .caretDownIcon {

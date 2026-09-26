@@ -48,11 +48,11 @@ const Szveg: FunctionComponent<SzvegType> = ({ className = "" }) => {
           variant="contained"
           onClick={() => goTo("/kapcsolat")}
           sx={{
-            color: "#f4e9da",
+            color: "#fffbef",
             fontSize: "14",
             background: "#ffcd55",
             borderRadius: "25px",
-            "&:hover": { background: "#ffcd55" },
+            "&:hover": { color: "#fffbef", background: "#ffcd55" },
           }}
         >
           Kattints ide
